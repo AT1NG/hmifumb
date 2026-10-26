@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HMIF UMB · Jadwal Event Informatika</title>
+  <meta name="description" content="Seminar, workshop, dan lomba untuk mahasiswa Informatika Universitas Muhammadiyah Bandung. Gratis, bersertifikat, dan bisa daftar langsung dari satu halaman.">
+  <meta property="og:title" content="Semua event HMIF UMB, dalam satu jadwal">
+  <meta property="og:description" content="Seminar, workshop, dan lomba untuk mahasiswa Informatika UMB. Gratis dan bersertifikat.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f2a44">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- 1. Navbar -->
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-white/90 backdrop-blur">
+  <nav class="wrap flex h-[72px] items-center justify-between" aria-label="Navigasi utama">
+    <a href="#" class="flex items-center gap-2.5 text-lg font-bold">
+      <img src="logo.svg" alt="" width="32" height="32" class="h-8 w-8">
+      HMIF UMB
+    </a>
+    <ul class="hidden items-center gap-9 text-[15px] font-medium md:flex">
+      <li><a class="hover:text-navy" href="#jadwal">Jadwal</a></li>
+      <li><a class="hover:text-navy" href="#program">Program</a></li>
+      <li><a class="hover:text-navy" href="#faq">FAQ</a></li>
+      <li><a class="hover:text-navy" href="#kontak">Kontak</a></li>
+    </ul>
+    <a href="#daftar" class="btn-small hidden md:inline-flex" data-cta="nav">Daftar event</a>
+    <button id="menuBtn" class="-mr-2 p-2 md:hidden" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="hidden border-t border-ink/10 bg-white md:hidden">
+    <ul class="wrap flex flex-col py-3 text-base font-medium">
+      <li><a class="block py-3" href="#jadwal">Jadwal</a></li>
+      <li><a class="block py-3" href="#program">Program</a></li>
+      <li><a class="block py-3" href="#faq">FAQ</a></li>
+      <li><a class="block py-3" href="#kontak">Kontak</a></li>
+      <li class="pt-2 pb-3"><a href="#daftar" class="btn-primary w-full" data-cta="nav-mobile">Daftar event</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- 2. Hero -->
+<section id="jadwal" class="wrap grid gap-12 py-14 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-16 md:py-24">
+  <div>
+    <h1 class="text-[2.6rem] font-extrabold leading-[1.02] tracking-[-0.03em] md:text-[4rem]">
+      Semua event HMIF, dalam satu jadwal<span class="text-sun">.</span>
+    </h1>
+    <p class="mt-6 max-w-md text-lg leading-relaxed text-ink/70">
+      Seminar, workshop, dan lomba untuk mahasiswa Informatika UMB. Gratis, bersertifikat, dan bisa didaftar langsung dari halaman ini.
+    </p>
+    <div class="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+      <a href="#daftar" class="btn-primary w-full sm:w-auto" data-cta="hero">Daftar event terdekat</a>
+      <a href="#program" class="font-semibold underline decoration-2 underline-offset-[6px] hover:text-navy">Lihat semua program</a>
+    </div>
+  </div>
+
+  <div class="rounded-2xl border-[1.5px] border-ink bg-white">
+    <div class="flex items-center justify-between rounded-t-2xl border-b border-ink/10 bg-paper px-5 py-4 md:px-7">
+      <h2 class="font-bold">Jadwal terdekat</h2>
+      <span class="text-sm text-ink/60" id="agendaMonth">Nov – Des 2026</span>
+    </div>
+    <ul id="agendaList" class="divide-y divide-ink/10 px-5 md:px-7"><!-- diisi dari data EVENTS --></ul>
+  </div>
+</section>
+
+<!-- 3. Value proposition -->
+<section class="bg-paper">
+  <div class="wrap grid gap-12 py-16 md:grid-cols-[400px_1fr] md:gap-20 md:py-24">
+    <div>
+      <h2 class="h2">Dibuat untuk masalah yang sering kamu alami</h2>
+      <p class="mt-4 leading-relaxed text-ink/65">Info yang tercecer, biaya, dan sertifikat yang lama terbit adalah keluhan paling sering dari mahasiswa.</p>
+    </div>
+    <div class="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+      <div class="border-t-2 border-ink pt-5">
+        <h3 class="text-lg font-bold">Gratis, tanpa biaya tersembunyi</h3>
+        <p class="mt-2 leading-relaxed text-ink/65">Sebagian besar event tidak dipungut biaya. Kalau ada, nominalnya ditulis sejak awal.</p>
+      </div>
+      <div class="border-t-2 border-ink pt-5">
+        <h3 class="text-lg font-bold">Sertifikat langsung ke email</h3>
+        <p class="mt-2 leading-relaxed text-ink/65">Dikirim paling lambat 3 hari setelah acara, siap dipakai untuk CV dan lamaran magang.</p>
+      </div>
+      <div class="border-t-2 border-ink pt-5">
+        <h3 class="text-lg font-bold">Satu tempat untuk semua info</h3>
+        <p class="mt-2 leading-relaxed text-ink/65">Jadwal, lokasi, dan link acara ada di sini. Tidak perlu lagi mencari di grup WhatsApp.</p>
+      </div>
+      <div class="border-t-2 border-ink pt-5">
+        <h3 class="text-lg font-bold">Kenal kakak tingkat dan alumni</h3>
+        <p class="mt-2 leading-relaxed text-ink/65">Setiap event mempertemukan kamu dengan mentor dan alumni yang bekerja di bidang IT.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Social proof -->
+<section class="wrap py-16 md:py-24">
+  <div class="grid gap-12 md:grid-cols-[1fr_520px] md:gap-20">
+    <div class="flex flex-col">
+      <blockquote class="text-2xl font-medium leading-snug tracking-tight md:text-[1.9rem]">
+        “Workshop-nya praktis dan gratis. Sertifikatnya langsung masuk email, jadi bisa langsung aku pakai buat daftar magang.”
+      </blockquote>
+      <div class="mt-7 flex items-center gap-3">
+        <span class="grid h-12 w-12 place-items-center rounded-full bg-navy text-sm font-bold text-white">IF</span>
+        <div>
+          <p class="font-semibold">Peserta Workshop Web Dasar</p>
+          <p class="text-sm text-ink/60">Mahasiswa Teknik Informatika UMB</p>
+        </div>
+      </div>
+      <dl class="mt-10 grid grid-cols-3 gap-6 border-t border-ink/15 pt-8">
+        <div class="flex flex-col-reverse"><dt class="mt-1 text-sm text-ink/60">peserta tahun ini</dt><dd class="text-3xl font-extrabold md:text-4xl" data-stat="peserta">300+</dd></div>
+        <div class="flex flex-col-reverse"><dt class="mt-1 text-sm text-ink/60">event terlaksana</dt><dd class="text-3xl font-extrabold md:text-4xl" data-stat="event">12</dd></div>
+        <div class="flex flex-col-reverse"><dt class="mt-1 text-sm text-ink/60">sertifikat terbit</dt><dd class="text-3xl font-extrabold md:text-4xl" data-stat="sertifikat">250+</dd></div>
+      </dl>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3" aria-hidden="true">
+      <div class="tile col-span-2 h-56 md:h-72" style="--a:#0f2a44;--b:#16395c"><span>Workshop</span></div>
+      <div class="tile h-36 md:h-48" style="--a:#f5b928;--b:#f0a90c"><span class="!text-ink">Seminar</span></div>
+      <div class="tile h-36 md:h-48" style="--a:#10172a;--b:#24304d"><span>Lomba</span></div>
+    </div>
+  </div>
+
+  <p class="mt-14 border-t border-ink/10 pt-6 text-sm text-ink/60">
+    Didukung oleh <span class="font-semibold text-ink">Program Studi Teknik Informatika</span> dan <span class="font-semibold text-ink">Fakultas Sains dan Teknologi</span>, Universitas Muhammadiyah Bandung.
+  </p>
+</section>
+
+<!-- 5. Feature list -->
+<section id="program" class="wrap pb-16 md:pb-24">
+  <h2 class="h2">Program yang bisa kamu ikuti</h2>
+  <p class="mt-3 text-ink/65">Pilih sesuai tujuanmu, dari menambah skill sampai persiapan magang.</p>
+
+  <div class="mt-10">
+    <div class="hidden grid-cols-[320px_1fr_200px] gap-8 border-b-2 border-ink pb-3 text-sm text-ink/55 md:grid">
+      <span>Program</span><span>Yang kamu dapat</span><span>Jadwal</span>
+    </div>
+    <ul id="programList" class="divide-y divide-ink/10 border-b border-ink/10"></ul>
+  </div>
+</section>
+
+<!-- 6. FAQ -->
+<section id="faq" class="bg-paper">
+  <div class="wrap grid gap-10 py-16 md:grid-cols-[400px_1fr] md:gap-20 md:py-24">
+    <div>
+      <h2 class="h2">Pertanyaan yang sering muncul</h2>
+      <p class="mt-4 leading-relaxed text-ink/65">Belum terjawab? Tanyakan langsung ke pengurus lewat WhatsApp HMIF.</p>
+      <a href="#" data-link="whatsapp" target="_blank" rel="noopener" class="btn-ghost mt-7" data-cta="faq-wa">Tanya lewat WhatsApp</a>
+    </div>
+    <div class="border-t-2 border-ink">
+      <details class="group border-b border-ink/15 py-5" open>
+        <summary class="flex cursor-pointer items-start justify-between gap-6 font-semibold">Apakah event HMIF gratis?<span class="faq-icon mt-0.5 text-xl leading-none transition">+</span></summary>
+        <p class="mt-3 leading-relaxed text-ink/65">Sebagian besar event gratis untuk mahasiswa UMB. Kalau ada biaya, nominalnya ditulis jelas di halaman pendaftaran.</p>
+      </details>
+      <details class="group border-b border-ink/15 py-5">
+        <summary class="flex cursor-pointer items-start justify-between gap-6 font-semibold">Siapa saja yang boleh ikut?<span class="faq-icon mt-0.5 text-xl leading-none transition">+</span></summary>
+        <p class="mt-3 leading-relaxed text-ink/65">Semua mahasiswa aktif UMB. Beberapa event juga dibuka untuk mahasiswa kampus lain, keterangannya ada di detail acara.</p>
+      </details>
+      <details class="group border-b border-ink/15 py-5">
+        <summary class="flex cursor-pointer items-start justify-between gap-6 font-semibold">Apakah harus jadi anggota HMIF dulu?<span class="faq-icon mt-0.5 text-xl leading-none transition">+</span></summary>
+        <p class="mt-3 leading-relaxed text-ink/65">Tidak. Kamu cukup mengisi form pendaftaran di halaman ini.</p>
+      </details>
+      <details class="group border-b border-ink/15 py-5">
+        <summary class="flex cursor-pointer items-start justify-between gap-6 font-semibold">Kapan sertifikat dikirim?<span class="faq-icon mt-0.5 text-xl leading-none transition">+</span></summary>
+        <p class="mt-3 leading-relaxed text-ink/65">Paling lambat 3 hari setelah acara, ke email yang kamu isi saat mendaftar. Pastikan alamatnya benar.</p>
+      </details>
+      <details class="group border-b border-ink/15 py-5">
+        <summary class="flex cursor-pointer items-start justify-between gap-6 font-semibold">Bagaimana kalau batal hadir setelah daftar?<span class="faq-icon mt-0.5 text-xl leading-none transition">+</span></summary>
+        <p class="mt-3 leading-relaxed text-ink/65">Kabari pengurus lewat WhatsApp HMIF paling lambat sehari sebelum acara, supaya kursinya bisa dipakai mahasiswa lain.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Call to action -->
+<section id="daftar" class="wrap grid gap-10 py-16 md:grid-cols-[1fr_480px] md:items-center md:gap-20 md:py-24">
+  <div>
+    <h2 class="text-4xl font-extrabold leading-[1.05] tracking-tight md:text-[3.25rem]">Amankan kursimu di event berikutnya</h2>
+    <p class="mt-5 text-lg text-ink/70">Isi empat kolom berikut. Konfirmasi dan link acara dikirim ke email kamu.</p>
+    <p class="mt-4 font-semibold">Gratis untuk mahasiswa UMB. Kuota setiap event terbatas.</p>
+  </div>
+
+  <form id="regForm" name="pendaftaran-event" method="POST" action="https://formsubmit.co/almukhrij@gmail.com" novalidate
+        class="rounded-2xl border-[1.5px] border-ink bg-white p-6 md:p-8">
+    <input type="hidden" name="_subject" value="Pendaftar baru event HMIF UMB">
+    <input type="hidden" name="_template" value="table">
+    <p class="hidden"><label>Jangan diisi: <input name="_honey" tabindex="-1" autocomplete="off"></label></p>
+
+    <div class="space-y-5">
+      <label class="block">
+        <span class="text-sm font-semibold">Nama lengkap</span>
+        <input class="field" type="text" name="nama" placeholder="Rizky Pratama" autocomplete="name" required minlength="3">
+        <span class="err mt-1 hidden text-sm text-red-700">Isi nama lengkap kamu.</span>
+      </label>
+      <label class="block">
+        <span class="text-sm font-semibold">NIM</span>
+        <input class="field" type="text" name="nim" placeholder="2401020xx" inputmode="numeric" pattern="[0-9]{8,12}" required>
+        <span class="err mt-1 hidden text-sm text-red-700">NIM berupa 8–12 digit angka.</span>
+      </label>
+      <label class="block">
+        <span class="text-sm font-semibold">Email</span>
+        <input class="field" type="email" name="email" placeholder="nama@email.com" autocomplete="email" required>
+        <span class="err mt-1 hidden text-sm text-red-700">Masukkan email yang valid, sertifikat dikirim ke sini.</span>
+      </label>
+      <label class="block">
+        <span class="text-sm font-semibold">Event</span>
+        <select class="field appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 fill=%22none%22 stroke=%22%2310172a%22 stroke-width=%222%22><path d=%22m5 8 5 5 5-5%22/></svg>')] bg-[right_14px_center] bg-no-repeat pr-11" name="event" id="eventSelect" required>
+          <option value="">Pilih event yang ingin diikuti</option>
+        </select>
+        <span class="err mt-1 hidden text-sm text-red-700">Pilih salah satu event.</span>
+      </label>
+    </div>
+
+    <button type="submit" class="btn-primary mt-7 w-full" id="submitBtn" data-cta="form-submit">Daftar event</button>
+    <p id="formMsg" class="mt-3 hidden text-sm" role="status"></p>
+    <p class="mt-4 text-sm text-ink/55">Data hanya dipakai untuk pendaftaran event ini.</p>
+  </form>
+</section>
+</main>
+
+<!-- 8. Footer -->
+<footer id="kontak" class="border-t border-ink/10">
+  <div class="wrap flex flex-col gap-8 py-10 md:flex-row md:items-start md:justify-between">
+    <div>
+      <a href="#" class="flex items-center gap-2.5 text-lg font-bold"><img src="logo.svg" alt="" width="32" height="32" class="h-8 w-8">HMIF UMB</a>
+      <p class="mt-3 max-w-[260px] text-sm leading-relaxed text-ink/60">Himpunan Mahasiswa Informatika Universitas Muhammadiyah Bandung</p>
+    </div>
+    <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium">
+      <li><a class="hover:text-navy" href="#jadwal">Jadwal</a></li>
+      <li><a class="hover:text-navy" href="#program">Program</a></li>
+      <li><a class="hover:text-navy" href="#faq">FAQ</a></li>
+      <li><a class="hover:text-navy" href="#" data-link="instagram" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a class="hover:text-navy" href="#" data-link="whatsapp" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+  </div>
+  <div class="wrap border-t border-ink/10 py-6 text-sm text-ink/50">© 2026 HMIF UMB</div>
+</footer>
+
+<script>
+/* ====== DATA — ubah di sini saja ====== */
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/almukhrij@gmail.com'; // penerima data pendaftar
+const LINKS = {
+  whatsapp: 'https://wa.me/6281234567890',          // ganti: nomor/saluran WhatsApp HMIF
+  instagram: 'https://instagram.com/hmif.umb'       // ganti: akun Instagram HMIF
+};
+const EVENTS = [
+  { id: 'workshop-web-dasar', day: '14', month: 'Nov', title: 'Workshop Web Dasar', meta: 'Workshop · Gratis · Bersertifikat', quota: 'Sisa 18 kursi' },
+  { id: 'seminar-karier-it', day: '28', month: 'Nov', title: 'Seminar Karier IT', meta: 'Seminar · Gratis · Bersertifikat', quota: 'Sisa 42 kursi' },
+  { id: 'lomba-uiux', day: '12', month: 'Des', title: 'Lomba UI/UX Antar Angkatan', meta: 'Lomba · Tim 3 orang', quota: 'Pendaftaran tim dibuka' }
+];
+const PROGRAMS = [
+  ['Seminar & webinar IT', 'Bahas tren teknologi dan dunia kerja bersama praktisi industri.', 'Sebulan sekali'],
+  ['Workshop & bootcamp', 'Praktik langsung web, mobile, UI/UX, sampai cloud, dibimbing kakak tingkat.', '2 kali per semester'],
+  ['Lomba & hackathon', 'Cari tim, kerjakan proyek nyata, dan tambah isi portofolio.', 'Setiap semester'],
+  ['Mentoring karier & magang', 'Review CV, simulasi interview, dan info lowongan magang IT.', 'Sesuai jadwal mentor'],
+  ['Study group', 'Belajar rutin bareng sesuai minat: web, mobile, data, atau jaringan.', 'Tiap minggu'],
+  ['Open recruitment pengurus', 'Gabung jadi pengurus HMIF dan latih kemampuan berorganisasi.', 'Awal tahun ajaran']
+];
+/* ====================================== */
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+document.querySelectorAll('[data-link]').forEach(a => { a.href = LINKS[a.dataset.link] || '#'; });
+
+document.getElementById('agendaList').innerHTML = EVENTS.map(e => `
+  <li class="flex items-center gap-4 py-5 md:gap-6">
+    <div class="w-14 shrink-0"><p class="text-3xl font-extrabold leading-none">${esc(e.day)}</p><p class="mt-1 text-sm text-ink/55">${esc(e.month)}</p></div>
+    <div class="min-w-0 flex-1"><p class="font-bold leading-snug">${esc(e.title)}</p><p class="mt-0.5 text-sm text-ink/55">${esc(e.meta)}</p><p class="mt-1 text-sm font-medium">${esc(e.quota)}</p></div>
+    <a href="#daftar" class="btn-small shrink-0" data-event="${esc(e.id)}" data-cta="agenda">Daftar</a>
+  </li>`).join('');
+
+document.getElementById('eventSelect').insertAdjacentHTML('beforeend',
+  EVENTS.map(e => `<option value="${esc(e.title)}" data-id="${esc(e.id)}">${esc(e.title)} · ${esc(e.day)} ${esc(e.month)}</option>`).join(''));
+
+document.getElementById('programList').innerHTML = PROGRAMS.map(([n, d, j]) => `
+  <li class="grid gap-1.5 py-5 md:grid-cols-[320px_1fr_200px] md:items-baseline md:gap-8 md:py-6">
+    <span class="text-lg font-bold">${esc(n)}</span><span class="text-ink/65">${esc(d)}</span><span class="text-sm font-medium text-navy md:text-ink">${esc(j)}</span>
+  </li>`).join('');
+
+/* Tombol "Daftar" di jadwal langsung memilih event di form */
+document.addEventListener('click', ev => {
+  const btn = ev.target.closest('[data-event]');
+  if (!btn) return;
+  const opt = document.querySelector(`#eventSelect option[data-id="${btn.dataset.event}"]`);
+  if (opt) opt.selected = true;
+});
+
+/* Menu mobile */
+const menuBtn = document.getElementById('menuBtn'), menu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => {
+  const open = menu.classList.toggle('hidden') === false;
+  menuBtn.setAttribute('aria-expanded', open);
+});
+menu.addEventListener('click', e => { if (e.target.closest('a')) { menu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded', false); } });
+
+/* Validasi + kirim form */
+const form = document.getElementById('regForm'), msg = document.getElementById('formMsg'), submitBtn = document.getElementById('submitBtn');
+function check(el) {
+  const ok = el.checkValidity();
+  el.classList.toggle('is-invalid', !ok);
+  el.parentElement.querySelector('.err')?.classList.toggle('hidden', ok);
+  return ok;
+}
+form.querySelectorAll('.field').forEach(el => el.addEventListener('blur', () => el.value && check(el)));
+form.addEventListener('submit', async ev => {
+  ev.preventDefault();
+  const fields = [...form.querySelectorAll('.field')];
+  const valid = fields.map(check).every(Boolean);
+  if (!valid) { fields.find(f => !f.checkValidity()).focus(); return; }
+  submitBtn.disabled = true; submitBtn.textContent = 'Mengirim…';
+  try {
+    const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+    const out = await res.json().catch(() => ({}));
+    if (!res.ok || String(out.success) === 'false') throw new Error(out.message || res.status);
+    location.href = 'sukses.html?event=' + encodeURIComponent(form.event.value);
+  } catch (e) {
+    msg.textContent = 'Pendaftaran belum terkirim. Periksa koneksi lalu coba lagi.';
+    msg.className = 'mt-3 text-sm text-red-700';
+    submitBtn.disabled = false; submitBtn.textContent = 'Daftar event';
+  }
+});
+</script>
+</body>
+</html>

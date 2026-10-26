@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pendaftaran terkirim · HMIF UMB</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-paper">
+  <main class="wrap flex min-h-screen flex-col justify-center py-16">
+    <a href="./" class="flex items-center gap-2.5 text-lg font-bold"><img src="logo.svg" alt="" width="32" height="32" class="h-8 w-8">HMIF UMB</a>
+    <h1 class="mt-12 max-w-2xl text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">Pendaftaranmu sudah kami terima<span class="text-sun">.</span></h1>
+    <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
+      Kamu terdaftar di <strong id="ev" class="text-ink">event HMIF</strong>. Konfirmasi dan link acara akan dikirim ke email kamu sebelum hari H.
+    </p>
+    <div class="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+      <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn-primary" data-cta="sukses-wa">Ikuti WhatsApp HMIF</a>
+      <a href="./" class="font-semibold underline decoration-2 underline-offset-[6px]">Kembali ke jadwal</a>
+    </div>
+  </main>
+  <script>
+    const e = new URLSearchParams(location.search).get('event');
+    if (e) document.getElementById('ev').textContent = e;
+  </script>
+</body>
+</html>
